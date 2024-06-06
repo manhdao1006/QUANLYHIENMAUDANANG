@@ -1,0 +1,116 @@
+﻿@model QUANLYHIENMAUDANANG.Models.TAIKHOAN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Đăng ký thành viên - DaNaBlood</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin_mvc.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/skybooks.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/Login.css" />
+    <link rel="icon" type="image/x-icon" href="~/Content/images/logohienmau.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="margin-top: -50px; margin-bottom: 0px;">
+    <div class="wrapper grid">
+        <div class="logo" style="text-align:center;">
+            <img width="220px" src="~/Content/images/logohienmau.png" alt="DaNa Blood" />
+        </div>
+
+        <div class="admin_main">
+            @using (Html.BeginForm("DangKyThanhVien", "TrangChu", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <div class="title_management">Đăng Ký Thành Viên</div>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <input style="display: none;" id="MaTV" name="MaTV" value="@Html.DisplayFor(model => model.MaTK)" />
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Họ và tên:</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="TenNguoiHien" name="TenNguoiHien" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Ngày sinh:</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control" id="NgaySinh" name="NgaySinh" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Giới tính:</label>
+                        <div class="col-md-9">
+                            <label>
+                                <input type="radio" id="GioiTinh" name="GioiTinh" value="Nam" checked />
+                                Nam
+                            </label>
+                            <label>
+                                <input type="radio" id="GioiTinh" name="GioiTinh" value="Nữ" />
+                                Nữ
+                            </label>
+                            <label>
+                                <input type="radio" id="GioiTinh" name="GioiTinh" value="Khác" />
+                                Khác
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Địa chỉ:</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="DiaChi" name="DiaChi" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Số điện thoại:</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="SoDienThoai" name="SoDienThoai" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Email:</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="Email" name="Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.THANHVIEN.NHOMMAU.MaNM, "Nhóm máu:", htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownList("MaNM", ViewBag.MaNM as SelectList, "Chọn nhóm máu", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.THANHVIEN.NHOMMAU.MaNM, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng ký thành viên" class="btn_primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QUANLYHIENMAUDANANG.Models.PHIEUDANGKYHIENMAU>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title_management">DANH SÁCH PHIẾU ĐĂNG KÝ HIẾN MÁU</div>
+<form method="get" action="@Url.Action("Index")">
+    <input class="txt_search" name="keyword" placeholder="Nhập từ khóa tìm kiếm ..." value="@ViewBag.CurrentFilter" />
+    <input class="btn_primary" type="submit" value="Tìm kiếm" />
+</form>
+
+<div class="link_add">
+    <a href="~/DangKyHienMau/Create">Thêm mới phiếu đăng ký</a>
+</div>
+<table class="table" style="border: solid 2px black;">
+    <tr>
+        <th>
+            Tên người hiến
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Số CCCD
+        </th>
+        <th>
+            Ngày đăng ký hiến máu
+        </th>
+        <th>
+            Tên đợt
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNguoiHien)
+            </td>
+            <td>
+                @(item.NgaySinh.HasValue ? item.NgaySinh.Value.ToString("dd/MM/yyyy") : "N/A")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoCCCD)
+            </td>
+            <td>
+                @(item.NgayDKHM.HasValue ? item.NgayDKHM.Value.ToString("dd/MM/yyyy") : "N/A")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOTHIENMAU.TenDot)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "Edit", new { id = item.MaDKHM }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDKHM }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaDKHM })
+            </td>
+        </tr>
+    }
+
+</table>

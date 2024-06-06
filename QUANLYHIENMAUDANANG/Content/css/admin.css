@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    margin: 0px auto;
+}
+.admin_header{
+    background-color: white;
+    margin-top: -50px;
+}
+
+.admin_top > .admin_top_left {
+    height: 60px;
+}
+
+.admin_top > .admin_top_middle {
+    font-size: 25px;
+    font-family: Georgia, serif;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+    height: 70px;
+}
+
+.admin_top_middle > .slogan_en {
+    color: #FFA07A;
+}
+
+.admin_top > .admin_top_right {
+    display: flex;
+    height: 60px;
+}
+.admin_top_right .infor_account{
+    padding: 20px 0px;
+    flex: 50%;
+}
+.admin_top_right .logout_account{
+    padding: 20px 0px;
+    flex: 50%;
+}
+.infor_account > .account,
+.logout_account > .logout{
+    text-decoration: none;
+    color: black;
+    font-family: Arial;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.admin_center {
+    background-color: whitesmoke;
+}
+.admin_middle_left {
+    border: solid 3px #FFA07A;
+    border-radius: 5px;
+    background-color: white;
+    padding-left: 10px;
+    height: 100%;
+}
+.home_page > a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.home_page > a:hover{
+    text-decoration: none;
+    color: black;
+}
+.block_management a:hover {
+    color: red;
+    text-decoration: none;
+}
+.block_management > ul > li{
+    list-style: none;
+    padding: 10px;
+}
+.block_management_list_items > a{
+    color: black;
+    font-family: Arial;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin_middle_right{
+    justify-content: center;
+    padding-left: 20px;
+}
+.select{
+    width: 40%;
+}
+.form_add{
+    width: 80%;
+    margin: 0 auto;
+}
+.form_add .items_infor .lbl{
+    display: inline-block;
+    padding: 10px 0px;
+    width: 15%;
+    margin: 0px;
+}
+.form_add .items_infor .txt{
+    width: 40%;    
+}
+.form_add .btn_add .btn{
+    border: 2px solid #606060;
+    border-radius: 5px;
+    text-align: center;
+    width: 15%;
+}
+
+.admin_middle_list{
+    width: 100%;
+}
+.admin_middle_list > table{
+    width: 100%;
+}
+th, td{
+    border-collapse: collapse;
+    border: solid 2px #606060;
+    margin: 0 auto;
+}
+
+.management {
+    color: black;
+    font-family: Arial;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+.management:hover{
+    color: red;
+}
+
+.list_update,
+.list_chart {
+    display: none;
+}
+.list_items_func {
+
+}
+.list_items_func > ul{
+
+}
+.list_items_func > ul > li{
+    list-style: none;
+    padding: 10px;
+}
+
+.block_list_func{
+
+}
+.block_list_func > a{
+    color: black;
+    font-family: Arial;
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 600;
+    cursor: pointer;
+}

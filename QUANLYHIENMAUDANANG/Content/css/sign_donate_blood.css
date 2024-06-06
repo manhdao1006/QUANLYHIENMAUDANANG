@@ -1,0 +1,131 @@
+﻿.header {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-info {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.donation-list {
+    width: 80%;
+}
+
+.donation-event {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.registration-form, .profile-content {
+    width: 80%;
+}
+
+.registration-form {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+    .registration-form h3 {
+        color: #057fdc;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+    form label {
+        margin-top: 10px;
+    }
+
+    form input, form select, form button {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form button {
+        margin-top: 20px;
+        background-color: #057fdc;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        form button:hover {
+            background-color: #005bb5;
+        }
+
+#userProfileView {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f4b0b0;
+    padding: 20px;
+}
+
+    .sidebar h2 {
+        color: #057fdc;
+    }
+
+    .sidebar .sub-item {
+        cursor: pointer;
+        padding-left: 10px;
+    }
+
+        .sidebar .sub-item.active {
+            font-weight: bold;
+        }
+
+.profile-content {
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+    .profile-content h2 {
+        color: #057fdc;
+    }
+
+.registration {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #057fdc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+    button:hover {
+        background-color: #005bb5;
+    }

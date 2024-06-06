@@ -1,0 +1,209 @@
+﻿@model QUANLYHIENMAUDANANG.Models.DOTHIENMAU
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/sign_donate_blood.css" rel="stylesheet" />
+<div class="home-main-block-content grid">
+    <div class="home-main-content grid wide row">
+        <div class="home-main-content-left l-3 c-0">
+            <div class="home-main-block_category">
+                <div class="block_category">Địa điểm hiến máu</div>
+                <div class="block_menu">
+                    <ul class="block_menu_list">
+                        <li>
+                            <a class="" href="@Url.Action("DanhSachTruong", "TrangChu")">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Trường</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("DanhSachBenhVien", "TrangChu")">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Bệnh viện</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="@Url.Action("DanhSachKhac", "TrangChu")">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Địa điểm khác</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end home-main-block_category -->
+            <div class="home-main-content_quote">
+                <div class="block_quote_title"><a href="#">Tin tức</a></div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/An-Gi-Giup-Giam-Mo-Mau.jpg" />
+                        </div>
+                        <p>
+                            17 loại thực phẩm càng ăn càng giảm mỡ máu cao.
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Lo-xe-mi-kinh-dong-bach-cau-hat-e1706687566208.jpg" />
+                        </div>
+                        <p>
+                            Lơ xê mi kinh dòng bạch cầu hạt: Nguyên nhân, triệu chứng và chẩn đoán
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Dieu-tri-noi-tru-ban-ngay-11.jpg" />
+                        </div>
+                        <p>
+                            Hướng dẫn chăm sóc sức khoẻ mùa lạnh
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Thuc-pham-chua-canxi.png" />
+                        </div>
+                        <p>
+                            Nên ăn gì để đề phòng thiếu canxi?
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Ghep-te-bao-goc-tu-than-da-u-tuy-xuong-W1.jpg" />
+                        </div>
+                        <p>
+                            Ghép tế bào gốc điều trị bệnh đa u tủy xương:  Những tiến bộ đáng ghi nhận
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_more">
+                    <a href="">Xem thêm</a>
+                </div>
+            </div>
+            <!-- end home-main-content_quote -->
+        </div>
+        <div class="home-main-content-right l-9 c-12">
+            @using (Html.BeginForm("DangKyHienMau", "TrangChu", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="content">
+                    <div style="padding: 0px 20px;" class="block_category">Đăng ký hiến máu</div>
+                    <div class="outer-container">
+                        <div class="block_container">
+                            <input style="display: none;" type="text" class="form-control" id="MaDot" name="MaDot" value="@Html.DisplayFor(model => model.MaDot)" />
+                            <input style="display: none;" type="text" class="form-control" id="MaTV" name="MaTV" value='@Session["userid"].ToString()' />
+                            <div class="image-container">
+                                <img src="~/Content/images/campaign/@Html.DisplayFor(model => model.HinhAnh)" alt="Ảnh đợt hiến máu">
+                            </div>
+                            <div class="info-container">
+                                <h2>@Html.DisplayFor(model => model.TenDot)</h2>
+                                <p><strong>Nội dung:</strong> @Html.DisplayFor(model => model.NoiDung)</p>
+                                <p><strong>Địa điểm:</strong> @Html.DisplayFor(model => model.DONVITOCHUC.DiaChi)</p>
+                                <p><strong>Đơn vị tổ chức:</strong> @Html.DisplayFor(model => model.DONVITOCHUC.TenDVTC)</p>
+                                <div class="date-container">
+                                    <p><strong>Ngày bắt đầu:</strong> @Html.DisplayFor(model => model.NgayBatDau)</p>
+                                    <p><strong>Ngày kết thúc:</strong> @Html.DisplayFor(model => model.NgayKetThuc)</p>
+                                </div>
+                                <div class="registration-container">
+                                    <p><strong>Số lượng </strong> @Html.DisplayFor(model => model.SoLuongDangKy)/@Html.DisplayFor(model => model.SoLuongDangKyToiDa)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding: 0px 20px;" class="block_category">Nhập thông tin đăng ký</div>
+
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Họ và tên:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="TenNguoiHien" name="TenNguoiHien" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Ngày sinh:</label>
+                            <div class="col-md-10">
+                                <input type="date" class="form-control" id="NgaySinh" name="NgaySinh" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Giới tính:</label>
+                            <div class="col-md-10">
+                                <label>
+                                    <input type="radio" id="GioiTinh" name="GioiTinh" value="Nam" checked />
+                                    Nam
+                                </label>
+                                <label>
+                                    <input type="radio" id="GioiTinh" name="GioiTinh" value="Nữ" />
+                                    Nữ
+                                </label>
+                                <label>
+                                    <input type="radio" id="GioiTinh" name="GioiTinh" value="Khác" />
+                                    Khác
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Địa chỉ:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="DiaChi" name="DiaChi" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Số điện thoại:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="SoDienThoai" name="SoDienThoai" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Email:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="Email" name="Email" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Số CCCD:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="SoCCCD" name="SoCCCD" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Lưu" class="btn_primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    @Html.ActionLink("Quay lại", "DanhSach", null, new { @class = "link_comeback" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@model QUANLYHIENMAUDANANG.Models.CHITIETHIENMAU
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title_management">THÔNG TIN CHI TIẾT HIẾN MÁU</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Người hiến
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHIEUDANGKYHIENMAU.TenNguoiHien)
+        </dd>
+
+        <dt>
+            Thời gian bắt đầu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianBatDau)
+        </dd>
+
+        <dt>
+            Thời gian kết thúc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianKetThuc)
+        </dd>
+
+        <dt>
+            Thể tích máu (ml)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheTichMau)
+        </dd>
+
+        <dt>
+            Tình trạng sức khỏe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangSucKhoe)
+        </dd>
+
+        <dt>
+            Kết quả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KetQua)
+        </dd>
+
+        <dt>
+            Chú thích
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuThich)
+        </dd>
+
+        <dt>
+            Nhóm máu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHOMMAU.MaNM)
+        </dd>
+
+        <dt>
+            Nhân viên lấy máu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIENKHOAXETNGHIEM.TenNV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật | ", "Edit", new { id = Model.MaCTHM }, new { @class = "link_comeback" })
+    @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "link_comeback" })
+</p>

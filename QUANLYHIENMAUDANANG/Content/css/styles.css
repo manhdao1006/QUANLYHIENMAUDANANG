@@ -1,0 +1,75 @@
+.content {
+    width: 100%;
+    padding: 0px 20px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+.outer-container {
+    border: 1px solid #ccc; /* Khung viền */
+    padding: 10px; /* Khoảng cách giữa khung viền và nội dung */
+    margin: 0px 0px 20px; /* Khoảng cách từ khung viền đến các phần tử bên ngoài */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.block_container {
+    display: flex;
+    align-items: flex-start; /* Canh trên */
+    flex-wrap: wrap; /* Cho phép các phần tử chuyển dòng khi không đủ không gian */
+}
+.image-container {
+    flex: 0 0 40%; /* Đặt chiều rộng cho phần ảnh */
+    max-width: 40%;
+    margin-right: 20px
+/* Khoảng cách giữa ảnh và thông tin */
+}
+.image-container img {
+    width: 100%; /* Đặt chiều rộng ảnh */
+    height: 220px;
+}
+.info-container {
+    flex: 1; /* Phần còn lại của không gian */
+    max-width: 60%; /* Độ rộng tối đa */
+}
+.info-container h2 {
+    font-size: 22px;
+    margin-top: 0;
+    color: black;
+    font-weight: 600;
+}
+.info-container p {
+    font-size: 15px;
+    line-height: 1.4; /* Điều chỉnh line-height để làm cho khoảng cách giữa các dòng nhỏ hơn */
+    margin-top: 5px; /* Thêm margin-top để tạo khoảng cách giữa các dòng */
+    margin-bottom: 5px; /* Thêm margin-bottom để tạo khoảng cách giữa các dòng */
+}
+.date-container,
+.registration-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.date-container p,
+.registration-container p {
+    margin: 0;
+    font-size: 13px;
+}
+.decorative-border {
+    border: 1px solid #ccc; /* Change to solid border */
+}
+.register-button {
+    display: inline-block;
+    color: #FFA07A;
+    padding: 8px;
+    border: solid 3px #FFA07A;
+    background-color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    color: white;
+    background-color: #FFA07A;
+    text-decoration: none;
+}

@@ -2,37 +2,162 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DaNa BLOOD</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/skybooks.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin_mvc.css">
+    <link rel="icon" type="image/x-icon" href="~/Content/images/logohienmau.png">
+
+    <!-- [if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--header-->
+    <div class="wrapper grid">
+        <div class="home-header grid">
+            <div class="home-header-top grid wide">
+                <div class="home-header-top-content">
+                    <div class="home-header-top-left">
+                        <div class=""><a href="#" class="fb-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="ins-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                        <div class=""><a href="#" class="youtube-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="home-header-top-right">
+                        <div class=""><a href="#" class="phone-icon"><i class="fa fa-phone" aria-hidden="true"> <span>02438438220</span></i></a></div>
+                        <div class=""><a href="#" class="mail-icon c-3"><i class="fa fa-envelope" aria-hidden="true"> <span>cskh_online@danablood.com.vn</span></i></a></div>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="wrapper grid">
+        <div class="home-banner grid wide">
+            <div class="home-header-banner row">
+                <div class="home-header-banner-left l-4">
+                    <a href=""><img height="120px" class="logo" src="~/Content/images/logohienmau.png" alt="DaNa Blood"></a>
+                </div>
+
+                <div class="home-header-banner-center l-4">
+                    <div class="home-header-banner-center-search">
+                        <input style="max-width: 350px;" type="text" class="search" placeholder="Tìm kiếm... ">
+                        <button class="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                @if (Session["username"] == null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="~/TrangChu/DangNhap"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng nhập</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangKy"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Đăng ký</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+                @if (Session["username"] != null)
+                {
+                    <div class="home-header-banner-right l-4">
+                        <div class="home-header-banner-right-login">
+                            <a class="login" href="../ThongTin/ChoXacNhan?MaTV=@Session["userid"]"><i class="fa fa-user" aria-hidden="true"></i> <span>@Session["username"]</span></a>
+                        </div>
+                        <div class="home-header-banner-right-signin">
+                            <a class="signin" href="~/TrangChu/DangXuatUser"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                        </div>
+                        <div class="home-header-banner-right-like">
+                            <a class="like" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="home-header-banner-right-cart">
+                            <a class="cart" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!--navigation-->
+    <div class="wrapper grid" style="margin-top: -15px; margin-bottom: -10px;">
+        <div class="home-navbar grid">
+            <div class="home-navbar-menu grid wide">
+                <ul class="row">
+                    <li><a class="homepage" href=""><i class="fa fa-home"></i></a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Đơn vị lấy máu</a></li>
+                    <li><a href="#">Đơn vị tổ chức</a></li>
+                    <li>
+                        <div class="home-navbar-menu-list">
+                            <a href="@Url.Action("DanhSach", "TrangChu")" class="items">Đợt hiến máu</a>
+                            <div class="list-items_type">
+                                <ul class="list">
+                                    <li><a class="list-items-list" href="@Url.Action("DanhSachTruong", "TrangChu")"><i class="fa" aria-hidden="true"></i>Trường</a></li>
+                                    <li><a class="list-items-list" href="@Url.Action("DanhSachBenhVien", "TrangChu")"><i class="fa" aria-hidden="true"></i>Bệnh viện</a></li>
+                                    <li><a class="list-items-list" href="@Url.Action("DanhSachKhac", "TrangChu")"><i class="fa" aria-hidden="true"></i>Địa điểm khác</a></li>
+                                    <li><a class="list-items-list" href="#"><i class="fa" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">Thông tin cần biết</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Liên hệ</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+    @RenderBody()
+
+    <!--footer-->
+    <div class="wrapper grid">
+        <div class="home-footer grid">
+            <div class="home-footer-content grid wide">
+                <div class="block-content_main no-gutters row">
+                    <div class="block-content_main_left no-gutters l-4">
+                        <img src="~/Content/images/logohienmau.png" alt="DaNa Blood" />
+                        <p>
+                            DaNa Blood - là một trang web phi lợi nhuận được thành lập với mục tiêu nâng cao nhận thức về tầm quan trọng của hiến máu và khuyến khích mọi người tham gia hiến máu thường xuyên.
+                            <br /><br />Hãy nghĩ đến người bệnh. Sự sống và cái chết đang đe dọa họ. Bằng cách hiến máu, Bạn có thể tạo ra sự khác biệt giữa sự sống và cái chết.
+                        </p>
+                    </div>
+
+                    <div class="block-content_main_middle no-gutters l-4">
+                        <div class="our_contact">Liên hệ với chúng tôi</div>
+                        <div class="address_contact">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Địa chỉ: Số 31 Hải Thượng Lãn Ông, Thanh Bình, Hải Châu, Đà Nẵng</span>
+                        </div>
+                        <div class="phone_contact">
+                            <i class="fa fa-phone"></i>
+                            <span>Hotline: 02438438220</span>
+                        </div>
+                    </div>
+
+                    <div class="block-content_main_right no-gutters l-4">
+                        <div class="signin_sale">Đăng ký nhận thông báo</div>
+                        <div>Đừng bỏ lỡ những thông báo và tin tức liên quan đến việc hiến máu nhân đạo và sức khỏe cộng đồng</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

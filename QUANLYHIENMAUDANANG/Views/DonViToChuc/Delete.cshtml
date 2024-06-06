@@ -1,0 +1,55 @@
+﻿@model QUANLYHIENMAUDANANG.Models.DONVITOCHUC
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title_management">XÓA THÔNG TIN ĐỢN VỊ TỔ CHỨC</div>
+<h3>Bạn có chắc chắn muốn xóa không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên đơn vị tổ chức
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDVTC)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            Người đại diện
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDaiDien)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn_primary" /> |
+            @Html.ActionLink(" | Quay lại danh sách", "Index", null, new { @class = "link_comeback" })
+        </div>
+    }
+</div>

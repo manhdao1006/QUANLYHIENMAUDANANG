@@ -1,0 +1,73 @@
+﻿@model QUANLYHIENMAUDANANG.Models.TAIKHOAN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Đăng nhập - DaNaBlood</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin_mvc.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/skybooks.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/Login.css" />
+    <link rel="icon" type="image/x-icon" href="~/Content/images/logohienmau.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="margin-top: -50px; margin-bottom: 0px;">
+    <div class="wrapper grid">
+        <div class="logo" style="text-align:center;">
+            <img width="220px" src="~/Content/images/logohienmau.png" alt="DaNa Blood" />
+        </div>
+
+        <div class="admin_main">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <div class="title_management">Đăng Nhập</div>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label style="font-size:14px; text-align:left; padding-left: 15px;">Tên đăng nhập:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-size:14px; text-align:left; padding-left: 15px;">Mật khẩu:</label>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" } )
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng nhập" class="btn_primary" />
+                        </div>
+                    </div>
+                    <div>
+                        @Html.ActionLink("Quay lại", "DanhSach", null, new { @class = "link_comeback" })
+                    </div>
+                    <div>
+                        @Html.ActionLink("Bạn chưa có tài khoản?", "DangKy", null, new { @class = "link_comeback" })
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4257c2d5301a48d78cae97eee10b2abd" Name="Diagram1">
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.BENHVIEN" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.CHITIETPHANBOMAU" Width="1.5" PointX="15.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.CHITIETPHIEUNHAP" Width="1.5" PointX="12.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.CHITIETHIENMAU" Width="1.5" PointX="18" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.DONVITOCHUC" Width="1.5" PointX="11.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.DOTHIENMAU" Width="1.5" PointX="13.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.KHOAHUYETHOC_TRUYENMAU" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.KHOAXETNGHIEM" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.NGANHANGMAU" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.NHANVIENKHOAXETNGHIEM" Width="1.5" PointX="10.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.NHOMMAU" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.PHANBOMAU" Width="1.5" PointX="13.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.PHIEUDANGKYHIENMAU" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.PHIEUNHAPMAU" Width="1.5" PointX="7.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.PHONGNGHIEPVUY" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.QUYENTAIKHOAN" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.TAIKHOAN" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHIENMAU_31Model.THANHVIEN" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__KHOAHUYETH__MaBV__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__KHOAXETNGH__MaBV__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETPH__MaNHM__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETPHA__MaPB__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETPHI__MaNM__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETPHI__MaPN__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETHI__MaDKH__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETHIE__MaNM__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__CHITIETHIE__MaNV__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__DOTHIENMA__MaDVT__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__DOTHIENMA__MaKho__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__PHIEUDANG__MaDot__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__KHOAHUYET__MaKho__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__NGANHANGM__MaKho__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__PHIEUNHAP__MaKho__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__KHOAXETNG__MaKho__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__NHANVIENK__MaKho__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__NGANHANGMA__MaNM__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__THANHVIEN__MaNM__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__PHIEUDANGK__MaTV__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__PHONGNGHI__MaPho__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__TAIKHOAN__MaQuye__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHIENMAU_31Model.FK__THANHVIEN__MaTV__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

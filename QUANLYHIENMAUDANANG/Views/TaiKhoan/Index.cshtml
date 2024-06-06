@@ -1,0 +1,70 @@
+﻿@model IEnumerable<QUANLYHIENMAUDANANG.Models.TAIKHOAN>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title_management">DANH SÁCH TÀI KHOẢN</div>
+<form method="get" action="@Url.Action("Index")">
+    <div style="display: flex;">
+        <div style="width: 60%;">
+            <input class="txt_search" name="keyword" placeholder="Nhập từ khóa tìm kiếm ..." value="@ViewBag.CurrentFilter" />
+            <input class="btn_primary" type="submit" value="Tìm kiếm" />
+        </div>
+        <div style="width: 40%;">
+            @Html.DropDownList("MaQuyen", (SelectList)ViewBag.Quyens, "Chọn quyền", new { @class = "form-control", onchange = "this.form.submit();" })
+        </div>
+    </div>
+</form>
+
+<div class="link_add">
+    <a href="~/TaiKhoan/Create">Thêm mới tài khoản</a>
+</div>
+<table class="table" style="border: solid 2px black;">
+    <tr>
+        <th>
+            Mã tài khoản
+        </th>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            Bệnh viện
+        </th>
+        <th>
+            Quyền
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDangNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHOAHUYETHOC_TRUYENMAU.BENHVIEN.TenBV)
+                @Html.DisplayFor(modelItem => item.KHOAXETNGHIEM.BENHVIEN.TenBV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QUYENTAIKHOAN.TenQuyen)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "Edit", new { id = item.MaTK }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaTK }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaTK })
+            </td>
+        </tr>
+    }
+
+</table>

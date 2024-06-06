@@ -1,0 +1,30 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-horizontal .form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.form-horizontal {
+    padding: 20px;
+    margin: 0% 33%;
+    border-radius: 10px;
+    background-color: oldlace;
+}
+
+.link_comeback {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+    .link_comeback:hover {
+        text-decoration: none;
+        color: #337ab7;
+        font-size: 18px;
+        font-weight: 600;
+    }

@@ -1,0 +1,181 @@
+﻿@model List<QUANLYHIENMAUDANANG.Models.PHIEUDANGKYHIENMAU>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/css/profile.css" />
+
+<div class="home-main-block-content grid">
+    <div class="home-main-content grid wide row">
+        <div class="home-main-content-left l-3 c-0">
+            <div class="home-main-block_category">
+                <div class="block_category">TRANG CÁ NHÂN</div>
+                <div class="block_infor_user">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>@(Session["fullname"] != null ? Session["fullname"] : Session["username"])</span>
+                </div>
+                <div class="block_menu">
+                    <ul class="block_menu_list">
+                        <li>
+                            <a class="" href="">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Thông Tin Cá Nhân</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="~/ThongTin/ChoXacNhan?MaTV=@Session["userid"]">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Lịch Sử Hiến Máu</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Thông Báo</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="../TrangChu/DangXuatUser">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span>Đăng Xuất</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- end home-main-block_category -->
+            <div class="home-main-content_quote">
+                <div class="block_quote_title"><a href="#">Tin tức</a></div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/An-Gi-Giup-Giam-Mo-Mau.jpg" />
+                        </div>
+                        <p>
+                            17 loại thực phẩm càng ăn càng giảm mỡ máu cao.
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Lo-xe-mi-kinh-dong-bach-cau-hat-e1706687566208.jpg" />
+                        </div>
+                        <p>
+                            Lơ xê mi kinh dòng bạch cầu hạt: Nguyên nhân, triệu chứng và chẩn đoán
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Dieu-tri-noi-tru-ban-ngay-11.jpg" />
+                        </div>
+                        <p>
+                            Hướng dẫn chăm sóc sức khoẻ mùa lạnh
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Thuc-pham-chua-canxi.png" />
+                        </div>
+                        <p>
+                            Nên ăn gì để đề phòng thiếu canxi?
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_quote_items">
+                    <a href="#" title="">
+                        <div>
+                            <img width="100%" src="~/Content/images/news/Ghep-te-bao-goc-tu-than-da-u-tuy-xuong-W1.jpg" />
+                        </div>
+                        <p>
+                            Ghép tế bào gốc điều trị bệnh đa u tủy xương:  Những tiến bộ đáng ghi nhận
+                        </p>
+                    </a>
+                </div>
+
+                <div class="block_more">
+                    <a href="">Xem thêm</a>
+                </div>
+            </div>
+            <!-- end home-main-content_quote -->
+        </div>
+
+        <div class="home-main-content-right l-9 c-12">
+            <div class="purchase_block">
+                <div class="block_category">LỊCH SỬ HIẾN MÁU</div>
+
+                <div class="purchase_heading">
+                    <ul class="">
+                        <li><a style="color: #175F9E; font-weight: 600;" href="">Chờ xác nhận</a></li>
+                        <li><a href="~/ThongTin/DaHien?MaTV=@Session["userid"]">Đã hiến</a></li>
+                    </ul>
+                </div>
+                <div class="purchase_content">
+                    <div class="content">
+                        @foreach (var item in Model)
+                        {
+                            <div class="outer-container">
+                                <div class="block_container">
+                                    <div class="image-container">
+                                        <img src="~/Content/images/campaign/@Html.DisplayFor(modelItem => item.DOTHIENMAU.HinhAnh)" alt="Ảnh đợt hiến máu">
+                                    </div>
+                                    <div class="info-container">
+                                        <input style="display: none;" id="MaDKHM" name="MaDKHM" value="@Html.DisplayFor(modelItem => item.DOTHIENMAU.MaDot)" />
+                                        <input style="display: none;" id="MaTV" name="MaTV" value="@Html.DisplayFor(modelItem => item.THANHVIEN.MaTV)" />
+                                        <h2>@Html.DisplayFor(modelItem => item.DOTHIENMAU.TenDot)</h2>
+                                        <p><strong>Mã đăng ký: </strong>@Html.DisplayFor(modelItem => item.MaDKHM)</p>
+                                        <p><strong>Tên người hiến: </strong>@Html.DisplayFor(modelItem => item.TenNguoiHien)</p>
+                                        <p><strong>Địa điểm:</strong> @Html.DisplayFor(modelItem => item.DOTHIENMAU.DONVITOCHUC.DiaChi)</p>
+                                        <p><strong>Đơn vị tổ chức:</strong> @Html.DisplayFor(modelItem => item.DOTHIENMAU.DONVITOCHUC.TenDVTC)</p>
+                                        <div class="date-container">
+                                            <p><strong>Ngày bắt đầu:</strong> @Html.DisplayFor(modelItem => item.DOTHIENMAU.NgayBatDau)</p>
+                                            <p><strong>Ngày kết thúc:</strong> @Html.DisplayFor(modelItem => item.DOTHIENMAU.NgayKetThuc)</p>
+                                        </div>
+                                        <div class="registration-container">
+                                            <p><strong>Ngày đăng ký</strong> @Html.DisplayFor(modelItem => item.NgayDKHM)</p>
+                                        </div>
+                                        @{
+                                            if (item.DOTHIENMAU.NgayBatDau.HasValue)
+                                            {
+                                                DateTime ngayBatDau = item.DOTHIENMAU.NgayBatDau.Value;
+                                                TimeSpan timeDifference = ngayBatDau - DateTime.Now;
+                                                if (timeDifference.TotalHours <= 48)
+                                                {
+                                                    <button disabled style="display: inline-block; padding: 8px; font-size: 16px; border-radius: 10px; margin-top: 10px; cursor: not-allowed; background-color: #f63e3e; color: white;">Thời gian cập nhật và hủy đơn đã hết hạn</button>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("CapNhatPhieuDangKy", new { MaTV = Session["userid"], MaDot = item.DOTHIENMAU.MaDot })" class="register-button">Cập nhật</a>
+                                                    <div style="display: inline-block;">
+                                                        @using (Html.BeginForm("DeleteConfirmed", "ThongTin", new { MaDKHM = item.MaDKHM }, FormMethod.Post))
+                                                        {
+                                                            @Html.AntiForgeryToken()
+
+                                                            <div class="form-actions no-color">
+                                                                <input type="submit" value="Hủy" class="btn_primary" />
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

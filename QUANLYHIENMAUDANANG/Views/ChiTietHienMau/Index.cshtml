@@ -1,0 +1,86 @@
+﻿@model IEnumerable<QUANLYHIENMAUDANANG.Models.CHITIETHIENMAU>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title_management">DANH SÁCH CHI TIẾT HIẾN MÁU</div>
+<form method="get" action="@Url.Action("Index")">
+    <input class="txt_search" name="keyword" placeholder="Nhập từ khóa tìm kiếm ..." value="@ViewBag.CurrentFilter" />
+    <input class="btn_primary" type="submit" value="Tìm kiếm" />
+</form>
+
+<div class="link_add">
+    <a href="~/ChiTietHienMau/Create">Thêm mới chi tiết hiến máu</a>
+</div>
+<table class="table" style="border: solid 2px black;">
+    <tr>
+        <th>
+            Người hiến
+        </th>
+        <th>
+            Bắt đầu
+        </th>
+        <th>
+            Kết thúc
+        </th>
+        <th>
+            Thể tích máu (ml)
+        </th>
+        <th>
+            Tình trạng sức khỏe
+        </th>
+        <th>
+            Kết quả
+        </th>
+        <th>
+            Chú thích
+        </th>
+        <th>
+            Nhóm máu
+        </th>
+        <th>
+            Nhân viên lấy máu
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHIEUDANGKYHIENMAU.TenNguoiHien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheTichMau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrangSucKhoe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KetQua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChuThich)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHOMMAU.MaNM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHANVIENKHOAXETNGHIEM.TenNV)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "Edit", new { id = item.MaCTHM }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaCTHM }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaCTHM })
+            </td>
+        </tr>
+    }
+
+</table>

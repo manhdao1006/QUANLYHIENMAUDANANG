@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,9 +128,87 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BenhVienController.cs" />
+    <Compile Include="Controllers\ChiTietHienMauController.cs" />
+    <Compile Include="Controllers\DangKyHienMauController.cs" />
+    <Compile Include="Controllers\DonViToChucController.cs" />
+    <Compile Include="Controllers\DotHienMauController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\ThongTinController.cs" />
+    <Compile Include="Controllers\ThongKeController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BENHVIEN.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETHIENMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETPHANBOMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHITIETPHIEUNHAP.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DONVITOCHUC.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOTHIENMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHOAHUYETHOC_TRUYENMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHOAXETNGHIEM.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Models.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Models.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Models.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NGANHANGMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIENKHOAXETNGHIEM.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHOMMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHANBOMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHIEUDANGKYHIENMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHIEUNHAPMAU.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PHONGNGHIEPVUY.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QUYENTAIKHOAN.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAIKHOAN.cs">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THANHVIEN.cs">
+      <DependentUpon>Models.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -131,12 +217,73 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\admin.css" />
+    <Content Include="Content\css\admin_mvc.css" />
+    <Content Include="Content\css\grid.css" />
+    <Content Include="Content\css\Login.css" />
+    <Content Include="Content\css\profile.css" />
+    <Content Include="Content\css\Register.css" />
+    <Content Include="Content\css\sign_donate_blood.css" />
+    <Content Include="Content\css\skybooks.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\images\campaign\anh1.jpg" />
+    <Content Include="Content\images\campaign\anh10.jpg" />
+    <Content Include="Content\images\campaign\anh11.jpg" />
+    <Content Include="Content\images\campaign\anh12.jpg" />
+    <Content Include="Content\images\campaign\anh13.jpg" />
+    <Content Include="Content\images\campaign\anh14.jpg" />
+    <Content Include="Content\images\campaign\anh15.jpg" />
+    <Content Include="Content\images\campaign\anh16.jpg" />
+    <Content Include="Content\images\campaign\anh17.jpg" />
+    <Content Include="Content\images\campaign\anh18.jpg" />
+    <Content Include="Content\images\campaign\anh19.jpg" />
+    <Content Include="Content\images\campaign\anh2.jpg" />
+    <Content Include="Content\images\campaign\anh20.jpg" />
+    <Content Include="Content\images\campaign\anh21.jpg" />
+    <Content Include="Content\images\campaign\anh22.jpg" />
+    <Content Include="Content\images\campaign\anh23.jpg" />
+    <Content Include="Content\images\campaign\anh24.jpg" />
+    <Content Include="Content\images\campaign\anh25.jpg" />
+    <Content Include="Content\images\campaign\anh3.jpg" />
+    <Content Include="Content\images\campaign\anh4.jpg" />
+    <Content Include="Content\images\campaign\anh5.jpg" />
+    <Content Include="Content\images\campaign\anh6.jpg" />
+    <Content Include="Content\images\campaign\anh7.jpg" />
+    <Content Include="Content\images\campaign\anh8.jpg" />
+    <Content Include="Content\images\campaign\anh9.jpg" />
+    <Content Include="Content\images\logohienmau.png" />
+    <Content Include="Content\images\news\An-Gi-Giup-Giam-Mo-Mau.jpg" />
+    <Content Include="Content\images\news\Dieu-tri-noi-tru-ban-ngay-11.jpg" />
+    <Content Include="Content\images\news\Ghep-te-bao-goc-tu-than-da-u-tuy-xuong-W1.jpg" />
+    <Content Include="Content\images\news\Lo-xe-mi-kinh-dong-bach-cau-hat-e1706687566208.jpg" />
+    <Content Include="Content\images\news\Thuc-pham-chua-canxi.png" />
+    <Content Include="Content\images\slide1.jpg" />
+    <Content Include="Content\images\slide2.jpg" />
+    <Content Include="Content\images\slide3.jpg" />
+    <Content Include="Content\images\top_block_heading.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Models.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Models.edmx</DependentUpon>
+      <LastGenOutput>Models.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Models.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Models.edmx</DependentUpon>
+      <LastGenOutput>Models.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Models.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Models.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Models.edmx.diagram">
+      <DependentUpon>Models.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -159,13 +306,61 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\TrangChu\DanhSach.cshtml" />
+    <Content Include="Views\DotHienMau\Create.cshtml" />
+    <Content Include="Views\DotHienMau\Delete.cshtml" />
+    <Content Include="Views\DotHienMau\Details.cshtml" />
+    <Content Include="Views\DotHienMau\Edit.cshtml" />
+    <Content Include="Views\DotHienMau\Index.cshtml" />
+    <Content Include="Views\ChiTietHienMau\Create.cshtml" />
+    <Content Include="Views\ChiTietHienMau\Delete.cshtml" />
+    <Content Include="Views\ChiTietHienMau\Details.cshtml" />
+    <Content Include="Views\ChiTietHienMau\Edit.cshtml" />
+    <Content Include="Views\ChiTietHienMau\Index.cshtml" />
+    <Content Include="Views\TrangChu\DangNhap.cshtml" />
+    <Content Include="Views\TrangChu\DangKy.cshtml" />
+    <Content Include="Views\TrangChu\DangKyHienMau.cshtml" />
+    <Content Include="Views\DangKyHienMau\Create.cshtml" />
+    <Content Include="Views\DangKyHienMau\Delete.cshtml" />
+    <Content Include="Views\DangKyHienMau\Details.cshtml" />
+    <Content Include="Views\DangKyHienMau\Edit.cshtml" />
+    <Content Include="Views\DangKyHienMau\Index.cshtml" />
+    <Content Include="Views\ThongTin\ChoXacNhan.cshtml" />
+    <Content Include="Views\ThongTin\DaHien.cshtml" />
+    <Content Include="Views\NhanVien\Create.cshtml" />
+    <Content Include="Views\NhanVien\Delete.cshtml" />
+    <Content Include="Views\NhanVien\Details.cshtml" />
+    <Content Include="Views\NhanVien\Edit.cshtml" />
+    <Content Include="Views\NhanVien\Index.cshtml" />
+    <Content Include="Views\ThongKe\DotHienMau.cshtml" />
+    <Content Include="Views\ThongKe\NganHangMau.cshtml" />
+    <Content Include="Views\TrangChu\DanhSachBenhVien.cshtml" />
+    <Content Include="Views\TrangChu\DanhSachTruong.cshtml" />
+    <Content Include="Views\TrangChu\DanhSachKhac.cshtml" />
+    <Content Include="Views\TrangChu\DangXuatUser.cshtml" />
+    <Content Include="Views\TrangChu\DangXuatAdmin.cshtml" />
+    <Content Include="Views\TaiKhoan\Create.cshtml" />
+    <Content Include="Views\TaiKhoan\Delete.cshtml" />
+    <Content Include="Views\TaiKhoan\Details.cshtml" />
+    <Content Include="Views\TaiKhoan\Edit.cshtml" />
+    <Content Include="Views\TaiKhoan\Index.cshtml" />
+    <Content Include="Views\TrangChu\DangKyThanhVien.cshtml" />
+    <Content Include="Views\BenhVien\Create.cshtml" />
+    <Content Include="Views\BenhVien\Delete.cshtml" />
+    <Content Include="Views\BenhVien\Details.cshtml" />
+    <Content Include="Views\BenhVien\Edit.cshtml" />
+    <Content Include="Views\BenhVien\Index.cshtml" />
+    <Content Include="Views\DonViToChuc\Create.cshtml" />
+    <Content Include="Views\DonViToChuc\Delete.cshtml" />
+    <Content Include="Views\DonViToChuc\Details.cshtml" />
+    <Content Include="Views\DonViToChuc\Edit.cshtml" />
+    <Content Include="Views\DonViToChuc\Index.cshtml" />
+    <Content Include="Views\ThongTin\CapNhatPhieuDangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Content\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +374,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

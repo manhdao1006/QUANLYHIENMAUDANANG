@@ -1,0 +1,104 @@
+﻿@model QUANLYHIENMAUDANANG.Models.PHIEUDANGKYHIENMAU
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="title_management">THÔNG TIN CHI TIẾT PHIẾU ĐĂNG KÝ</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã đăng ký
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDKHM)
+        </dd>
+
+        <dt>
+            Họ và tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNguoiHien)
+        </dd>
+
+        <dt>
+            Ngày sinh
+        </dt>
+
+        <dd>
+            @(Model.NgaySinh.HasValue ? Model.NgaySinh.Value.ToString("dd/MM/yyyy") : "N/A")
+        </dd>
+
+        <dt>
+            Giới tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Số CCCD
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCCCD)
+        </dd>
+
+        <dt>
+            Ngày đăng ký
+        </dt>
+
+        <dd>
+            @(Model.NgayDKHM.HasValue ? Model.NgayDKHM.Value.ToString("dd/MM/yyyy") : "N/A")
+        </dd>
+
+        <dt>
+            Tên đợt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOTHIENMAU.TenDot)
+        </dd>
+
+        <dt>
+            Tên đăng nhập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THANHVIEN.TAIKHOAN.TenDangNhap)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật | ", "Edit", new { id = Model.MaDKHM }, new { @class = "link_comeback" })
+    @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "link_comeback" })
+</p>

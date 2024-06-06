@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang ADMIN</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/admin_mvc.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/grid.css" />
+    <link rel="icon" type="image/x-icon" href="~/Content/images/logohienmau.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="admin_header grid">
+        <div class="admin_top grid wide row">
+            <div class="admin_top_left l-3 m-3 c-3">
+                <div class="logo"><img width="" height="60px" src="~/Content/images/logohienmau.png" alt="DaNang Blood" /></div>
+            </div>
+
+            <div class="admin_top_middle l-6 m-6 c-6">
+                <div class="slogan_vi">Trao một giọt máu, Bảo vệ cuộc đời</div>
+                <div class="slogan_en">Donate blood - Save life</div>
+            </div>
+
+            <div class="admin_top_right l-3 m-3 c-3">
+                <div class="infor_account">
+                    <a class="account" href=""><i class="fa fa-user" aria-hidden="true"></i> <span>@Session["admin"]</span></a>
+                </div>
+                <div class="logout_account">
+                    <a class="logout" href="~/TrangChu/DangXuatAdmin"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Đăng xuất</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end-header-top-->
+
+    <div class="admin_center grid">
+        <div class="admin_middle grid wide row">
+            <div class="admin_middle_left no-gutters l-2">
+                <div class="home_page">
+                    <a href="~/Admin/DanhSach"><i class="fa fa-home" aria-hidden="true"></i> <span>Trang chủ</span></a>
+                </div>
+                <div class="block_management">
+                    <ul class="block_management_list">
+                        <li>
+                            <div class="block_management_list_items">
+                                <div class="management" id="update_handle">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                    <span>Cập nhật <i id="show_update_handle" class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="list_items_func list_update">
+                                    <ul class="list_func">
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/BenhVien/Index">
+                                                    <i class="fa fa-university" aria-hidden="true"></i>
+                                                    <span>Bệnh viện</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/DonViToChuc/Index">
+                                                    <i class="fa fa-university" aria-hidden="true"></i>
+                                                    <span>Đơn vị tổ chức</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/TaiKhoan/Index">
+                                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                                    <span>Tài khoản</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/NhanVien/Index">
+                                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                                    <span>Nhân viên</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/DotHienMau/Index">
+                                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                                    <span>Đợt hiến máu</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/DangKyHienMau/Index">
+                                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                                    <span>Phiếu đăng ký </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/ChiTietHienMau/Index">
+                                                    <i class="fa fa-recycle" aria-hidden="true"></i>
+                                                    <span>Chi tiết hiến máu</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="block_management_list_items">
+                                <div class="management" id="chart_handle">
+                                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                    <span>Thống kê <i id="show_chart_handle" class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                                </div>
+                                <div class="list_items_func list_chart">
+                                    <ul class="list_func">                                        
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/ThongKe/DotHienMau">
+                                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                                    <span>Đợt hiến máu</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="block_list_func">
+                                                <a href="~/ThongKe/NganHangMau">
+                                                    <i class="fa fa-university" aria-hidden="true"></i>
+                                                    <span>Ngân hàng máu </span>
+                                                </a>
+                                            </div>
+                                        </li>                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="block_management_list_items">
+                                <a href="~/Index">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Cài đặt</span>
+                                </a>
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="admin_middle_right no-gutters l-10">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script>
+        var check = 1;
+        document.getElementById("update_handle").onclick = function () {
+            if (check == 1) {
+                document.querySelector(".list_update").style.display = "block"
+                document.getElementById("show_update_handle").classList.remove("fa-chevron-down")
+                document.getElementById("show_update_handle").classList.add("fa-chevron-up")
+                check = 0
+            } else {
+                document.querySelector(".list_update").style.display = "none"
+                document.getElementById("show_update_handle").classList.remove("fa-chevron-up")
+                document.getElementById("show_update_handle").classList.add("fa-chevron-down")
+                check = 1
+            }
+        }
+
+        var flag = 1;
+        document.getElementById("chart_handle").onclick = function () {
+            if (flag == 1) {
+                document.querySelector(".list_chart").style.display = "block"
+                document.getElementById("show_chart_handle").classList.remove("fa-chevron-down")
+                document.getElementById("show_chart_handle").classList.add("fa-chevron-up")
+                flag = 0
+            } else {
+                document.querySelector(".list_chart").style.display = "none"
+                document.getElementById("show_chart_handle").classList.remove("fa-chevron-up")
+                document.getElementById("show_chart_handle").classList.add("fa-chevron-down")
+                flag = 1
+            }
+        }        
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
