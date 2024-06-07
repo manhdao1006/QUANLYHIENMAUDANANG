@@ -29,7 +29,7 @@
         </div>
 
         <div class="admin_main">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("DangKy", "TrangChu", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
 
@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <label style="font-size:14px; text-align:left; padding-left: 15px;">Tên đăng nhập:</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.TenDangNhap, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                             @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label style="font-size:14px; text-align:left; padding-left: 15px;">Mật khẩu:</label>
                         <div class="col-md-10">
-                            @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" })
+                            @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control", required = "required" })
                             @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
                         </div>
                     </div>

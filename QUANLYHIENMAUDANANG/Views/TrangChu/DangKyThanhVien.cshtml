@@ -1,4 +1,4 @@
-﻿@model QUANLYHIENMAUDANANG.Models.TAIKHOAN
+﻿@model QUANLYHIENMAUDANANG.Models.THANHVIEN
 
 @{
     Layout = null;
@@ -38,19 +38,19 @@
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <input style="display: none;" id="MaTV" name="MaTV" value="@Html.DisplayFor(model => model.MaTK)" />
+                    <input style="display: none;" id="MaTV" name="MaTV" value="@Model.MaTV" />
 
                     <div class="form-group">
                         <label class="control-label col-md-3">Họ và tên:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="TenNguoiHien" name="TenNguoiHien" />
+                            <input required type="text" class="form-control" id="HoVaTen" name="HoVaTen" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-3">Ngày sinh:</label>
                         <div class="col-md-9">
-                            <input type="date" class="form-control" id="NgaySinh" name="NgaySinh" />
+                            <input required type="date" class="form-control" id="NgaySinh" name="NgaySinh" />
                         </div>
                     </div>
 
@@ -75,29 +75,29 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Địa chỉ:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="DiaChi" name="DiaChi" />
+                            <input required type="text" class="form-control" id="DiaChi" name="DiaChi" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-3">Số điện thoại:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="SoDienThoai" name="SoDienThoai" />
+                            <input required type="text" class="form-control" id="SoDienThoai" name="SoDienThoai" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-3">Email:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="Email" name="Email" />
+                            <input required type="text" class="form-control" id="Email" name="Email" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.THANHVIEN.NHOMMAU.MaNM, "Nhóm máu:", htmlAttributes: new { @class = "control-label col-md-3" })
+                        @Html.LabelFor(model => model.NHOMMAU.MaNM, "Nhóm máu:", htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-9">
                             @Html.DropDownList("MaNM", ViewBag.MaNM as SelectList, "Chọn nhóm máu", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.THANHVIEN.NHOMMAU.MaNM, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.NHOMMAU.MaNM, "", new { @class = "text-danger" })
                         </div>
                     </div>
 

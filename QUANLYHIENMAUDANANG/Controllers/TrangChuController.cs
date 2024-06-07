@@ -30,17 +30,17 @@ namespace QUANLYHIENMAUDANANG.Controllers
                 var admin = db.TAIKHOAN.FirstOrDefault(acc => acc.TenDangNhap == taiKhoan.TenDangNhap
                                                         && acc.MatKhau == taiKhoan.MatKhau
                                                         && acc.MaQuyen == "TK01");
-                if (user != null)
+                if (admin != null)
+                {
+                    Session["admin"] = admin.TenDangNhap;
+                    return RedirectToAction("../DotHienMau/Index");
+                }
+                else if (user != null)
                 {
                     Session["username"] = user.TenDangNhap;
                     Session["userid"] = user.MaTK;
                     Session["fullname"] = user.THANHVIEN.HoVaTen;
-                    return RedirectToAction("DanhSach");
-                }
-                else if(admin != null)
-                {
-                    Session["admin"] = admin.TenDangNhap;
-                    return RedirectToAction("../DotHienMau/Index");
+                    return RedirectToAction("DanhSach");                    
                 }
                 else
                 {
@@ -64,20 +64,32 @@ namespace QUANLYHIENMAUDANANG.Controllers
         {
             if (ModelState.IsValid)
             {
-                string maTK = GenerateMaTK();
-                taiKhoan.MaTK = maTK;
-                taiKhoan.MaQuyen = "TK05";
+                var user = db.TAIKHOAN.FirstOrDefault(acc => acc.TenDangNhap == taiKhoan.TenDangNhap
+                                                        && acc.MaQuyen == "TK05");
+                var admin = db.TAIKHOAN.FirstOrDefault(acc => acc.TenDangNhap == taiKhoan.TenDangNhap
+                                                        && acc.MaQuyen == "TK01");
 
-                db.TAIKHOAN.Add(taiKhoan);
-                try
+                if (user != null || admin != null)
                 {
-                    db.SaveChanges();
-                    return RedirectToAction("DangKyThanhVien", new { MaTK = maTK });
+                    ModelState.AddModelError("", "Tài khoản đã tồn tại!");
                 }
-                catch (Exception ex)
+                else
                 {
-                    ModelState.AddModelError("", "Lỗi khi đăng ký tài khoản: " + ex.Message);
-                }
+                    string maTK = GenerateMaTK();
+                    taiKhoan.MaTK = maTK;
+                    taiKhoan.MaQuyen = "TK05";
+
+                    db.TAIKHOAN.Add(taiKhoan);
+                    try
+                    {
+                        db.SaveChanges();
+                        return RedirectToAction("DangKyThanhVien", new { MaTK = maTK });
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("", "Lỗi khi đăng ký tài khoản: " + ex.Message);
+                    }
+                }                
             }
 
             return View(taiKhoan);
@@ -98,7 +110,7 @@ namespace QUANLYHIENMAUDANANG.Controllers
             }
         }
 
-        // GET: DangKy
+        // GET: DangKyThanhVien
         public ActionResult DangKyThanhVien(string MaTK)
         {
             if (MaTK == null)
@@ -111,18 +123,23 @@ namespace QUANLYHIENMAUDANANG.Controllers
                 return HttpNotFound();
             }
 
+            // Tạo một đối tượng THANHVIEN và gán các giá trị cần thiết từ TAIKHOAN
+            THANHVIEN thanhVien = new THANHVIEN();
+            thanhVien.MaTV = taiKhoan.MaTK; // Gán MaTK từ TAIKHOAN sang THANHVIEN
+                                            // Thêm các dữ liệu khác của THANHVIEN nếu cần thiết
+
+            // Đặt ViewBag.MaNM với SelectList tương ứng
             ViewBag.MaNM = new SelectList(db.NHOMMAU, "MaNM", "MaNM");
-            return View(taiKhoan);
+            return View(thanhVien);
         }
 
-        // POST: DangKy
+        // POST: DangKyThanhVien
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DangKyThanhVien([Bind(Include = "MaTV,HoVaTen,NgaySinh,GioiTinh,DiaChi,SoDienThoai,Email,MaNM")] THANHVIEN thanhVien)
         {
             if (ModelState.IsValid)
             {
-
                 db.THANHVIEN.Add(thanhVien);
                 try
                 {
