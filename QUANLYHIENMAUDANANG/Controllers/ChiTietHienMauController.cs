@@ -20,26 +20,25 @@ namespace QUANLYHIENMAUDANANG.Controllers
             if (Session["admin"] == null)
                 return RedirectToAction("../TrangChu/DangNhap");
 
-            var cHITIETHIENMAU = db.CHITIETHIENMAU.Include(c => c.PHIEUDANGKYHIENMAU).Include(c => c.NHOMMAU).Include(c => c.NHANVIENKHOAXETNGHIEM);
+            var cHITIETHIENMAU = db.CHITIETHIENMAU.Include(c => c.PHIEUDANGKYHIENMAU).Include(c => c.NHOMMAU).Include(c => c.NHANVIENKHOAXETNGHIEM).OrderByDescending(c => c.MaCTHM);
 
             if (!string.IsNullOrEmpty(keyword))
             {
                 // Filter by keyword on relevant fields
                 if (keyword.Equals("Ổn định", StringComparison.OrdinalIgnoreCase)) // Check for exact match
                 {
-                    cHITIETHIENMAU = cHITIETHIENMAU.Where(c => c.TinhTrangSucKhoe.Equals("Ổn định", StringComparison.OrdinalIgnoreCase));
+                    cHITIETHIENMAU = cHITIETHIENMAU.Where(c => c.TinhTrangSucKhoe.Equals("Ổn định", StringComparison.OrdinalIgnoreCase)).OrderByDescending(c => c.MaCTHM);
                 }
                 else
                 {
-                    cHITIETHIENMAU = cHITIETHIENMAU.Where(c =>
-                        c.PHIEUDANGKYHIENMAU.TenNguoiHien.Contains(keyword) ||
-                        c.TheTichMau.ToString().Contains(keyword) ||
-                        c.TinhTrangSucKhoe.Contains(keyword) ||
-                        c.KetQua.Contains(keyword) ||
-                        c.ChuThich.Contains(keyword) ||
-                        c.NHOMMAU.MaNM.Contains(keyword) ||
-                        c.NHANVIENKHOAXETNGHIEM.TenNV.Contains(keyword)
-                    );
+                    cHITIETHIENMAU = cHITIETHIENMAU.Where(c => c.PHIEUDANGKYHIENMAU.TenNguoiHien.Contains(keyword) ||
+                                                               c.TheTichMau.ToString().Contains(keyword) ||
+                                                               c.TinhTrangSucKhoe.Contains(keyword) ||
+                                                               c.KetQua.Contains(keyword) ||
+                                                               c.ChuThich.Contains(keyword) ||
+                                                               c.NHOMMAU.MaNM.Contains(keyword) ||
+                                                               c.NHANVIENKHOAXETNGHIEM.TenNV.Contains(keyword))
+                                                   .OrderByDescending(c => c.MaCTHM);
                 }
             }
 

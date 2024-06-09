@@ -20,18 +20,17 @@ namespace QUANLYHIENMAUDANANG.Controllers
             if (Session["admin"] == null)
                 return RedirectToAction("../TrangChu/DangNhap");
 
-            var phieuDangKyHienMau = db.PHIEUDANGKYHIENMAU.Include(p => p.DOTHIENMAU).Include(p => p.THANHVIEN);
+            var phieuDangKyHienMau = db.PHIEUDANGKYHIENMAU.Include(p => p.DOTHIENMAU).Include(p => p.THANHVIEN).OrderByDescending(p => p.MaDKHM);
 
             if (!string.IsNullOrEmpty(keyword))
             {
-                phieuDangKyHienMau = phieuDangKyHienMau.Where(p =>
-                    p.TenNguoiHien.Contains(keyword) ||
-                    p.GioiTinh.Contains(keyword) ||
-                    p.DiaChi.Contains(keyword) ||
-                    p.SoDienThoai.Contains(keyword) ||
-                    p.SoCCCD.Contains(keyword) ||
-                    p.DOTHIENMAU.TenDot.Contains(keyword)
-                );
+                phieuDangKyHienMau = phieuDangKyHienMau.Where(p => p.TenNguoiHien.Contains(keyword) ||
+                                                                   p.GioiTinh.Contains(keyword) ||
+                                                                   p.DiaChi.Contains(keyword) ||
+                                                                   p.SoDienThoai.Contains(keyword) ||
+                                                                   p.SoCCCD.Contains(keyword) ||
+                                                                   p.DOTHIENMAU.TenDot.Contains(keyword))
+                                                       .OrderByDescending(p => p.MaDKHM);
             }
 
             ViewBag.CurrentFilter = keyword;

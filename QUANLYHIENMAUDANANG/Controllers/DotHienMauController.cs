@@ -21,21 +21,16 @@ namespace QUANLYHIENMAUDANANG.Controllers
             if (Session["admin"] == null)
                 return RedirectToAction("../TrangChu/DangNhap");
 
-            var dothienmaus = db.DOTHIENMAU.Include(d => d.DONVITOCHUC).Include(d => d.KHOAXETNGHIEM);
+            var dothienmaus = db.DOTHIENMAU.Include(d => d.DONVITOCHUC).Include(d => d.KHOAXETNGHIEM).OrderByDescending(d => d.MaDot);
 
             if (!String.IsNullOrEmpty(keyword))
             {
-                // Chuyển đổi từ khóa tìm kiếm
-                var query = dothienmaus.AsQueryable();
-
-                query = query.Where(d =>
-                    d.MaDot.Contains(keyword) ||
-                    d.TenDot.Contains(keyword) ||
-                    d.KHOAXETNGHIEM.BENHVIEN.TenBV.Contains(keyword) ||
-                    d.DONVITOCHUC.TenDVTC.Contains(keyword)
-                );
-
-                dothienmaus = query;
+                keyword = keyword.Trim();
+                dothienmaus = dothienmaus.Where(d => d.MaDot.Contains(keyword) ||
+                                                     d.TenDot.Contains(keyword) ||
+                                                     d.KHOAXETNGHIEM.BENHVIEN.TenBV.Contains(keyword) ||
+                                                     d.DONVITOCHUC.TenDVTC.Contains(keyword))
+                                         .OrderByDescending(d => d.MaDot);
             }
 
             ViewBag.CurrentFilter = keyword;
