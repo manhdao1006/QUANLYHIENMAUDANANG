@@ -148,7 +148,7 @@
                                             {
                                                 DateTime ngayBatDau = item.DOTHIENMAU.NgayBatDau.Value;
                                                 TimeSpan timeDifference = ngayBatDau - DateTime.Now;
-                                                if (timeDifference.TotalHours <= 48)
+                                                if (timeDifference.TotalHours < 48)
                                                 {
                                                     <button disabled style="display: inline-block; padding: 8px; font-size: 16px; border-radius: 10px; margin-top: 10px; cursor: not-allowed; background-color: #f63e3e; color: white;">Thời gian cập nhật và hủy đơn đã hết hạn</button>
                                                 }

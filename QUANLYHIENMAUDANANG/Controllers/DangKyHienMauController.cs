@@ -74,13 +74,6 @@ namespace QUANLYHIENMAUDANANG.Controllers
             if (ModelState.IsValid)
             {
                 db.PHIEUDANGKYHIENMAU.Add(pHIEUDANGKYHIENMAU);
-
-                var dotHienMau = db.DOTHIENMAU.Find(pHIEUDANGKYHIENMAU.MaDot);
-                if (dotHienMau != null)
-                {
-                    dotHienMau.SoLuongDangKy++;
-                }
-
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -170,13 +163,6 @@ namespace QUANLYHIENMAUDANANG.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             PHIEUDANGKYHIENMAU phieuDangKyHienMau = db.PHIEUDANGKYHIENMAU.Find(id);
-
-            var dotHienMau = db.DOTHIENMAU.Find(phieuDangKyHienMau.MaDot);
-            if (dotHienMau != null && dotHienMau.SoLuongDangKy > 0)
-            {
-                dotHienMau.SoLuongDangKy--;
-            }
-
             db.PHIEUDANGKYHIENMAU.Remove(phieuDangKyHienMau);
             db.SaveChanges();
 

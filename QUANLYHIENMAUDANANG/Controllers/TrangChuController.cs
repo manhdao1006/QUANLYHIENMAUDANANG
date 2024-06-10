@@ -191,7 +191,7 @@ namespace QUANLYHIENMAUDANANG.Controllers
             try
             {
                 var dotHienMauList = db.DOTHIENMAU
-                    .Where(d => d.DONVITOCHUC.TenDVTC.Contains("Trường") && d.NgayKetThuc >= DateTime.Now)
+                    .Where(d => d.DONVITOCHUC.TenDVTC.Contains("Trường") && d.NgayBatDau > DateTime.Now)
                     .ToList();
                 return View(dotHienMauList);
             }
@@ -207,7 +207,7 @@ namespace QUANLYHIENMAUDANANG.Controllers
             try
             {
                 var dotHienMauList = db.DOTHIENMAU
-                    .Where(d => d.DONVITOCHUC.TenDVTC.Contains("Bệnh viện") && d.NgayKetThuc >= DateTime.Now)
+                    .Where(d => d.DONVITOCHUC.TenDVTC.Contains("Bệnh viện") && d.NgayBatDau > DateTime.Now)
                     .ToList();
                 return View(dotHienMauList);
             }
@@ -223,7 +223,7 @@ namespace QUANLYHIENMAUDANANG.Controllers
             try
             {
                 var dotHienMauList = db.DOTHIENMAU
-                    .Where(d => !d.DONVITOCHUC.TenDVTC.Contains("Trường") && !d.DONVITOCHUC.TenDVTC.Contains("Bệnh viện") && d.NgayKetThuc >= DateTime.Now)
+                    .Where(d => !d.DONVITOCHUC.TenDVTC.Contains("Trường") && !d.DONVITOCHUC.TenDVTC.Contains("Bệnh viện") && d.NgayBatDau > DateTime.Now)
                     .ToList();
                 return View(dotHienMauList);
             }
@@ -266,13 +266,6 @@ namespace QUANLYHIENMAUDANANG.Controllers
                 phieuDangKyHienMau.NgayDKHM = DateTime.Now;
 
                 db.PHIEUDANGKYHIENMAU.Add(phieuDangKyHienMau);
-
-                var dotHienMau = db.DOTHIENMAU.Find(phieuDangKyHienMau.MaDot);
-                if (dotHienMau != null)
-                {
-                    dotHienMau.SoLuongDangKy++;
-                }
-
                 db.SaveChanges();
                 return RedirectToAction("DanhSach");
             }

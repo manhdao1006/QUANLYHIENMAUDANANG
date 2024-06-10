@@ -136,7 +136,7 @@
         <div class="home-main-content-right l-9 c-12">
             <div style="padding: 0px 20px;" class="block_category">Đợt hiến máu</div>
             <div class="content">
-                @foreach (var dotHienMau in Model.Where(d => d.NgayKetThuc >= DateTime.Now))
+                @foreach (var dotHienMau in Model.Where(d => d.NgayBatDau > DateTime.Now))
                 {
                     <div class="outer-container">
                         <div class="block_container">

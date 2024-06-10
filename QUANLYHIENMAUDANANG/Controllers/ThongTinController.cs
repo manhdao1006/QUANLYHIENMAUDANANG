@@ -22,7 +22,7 @@ namespace QUANLYHIENMAUDANANG.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-            var phieuDangKyHienMaus = db.PHIEUDANGKYHIENMAU.Where(pdk => pdk.THANHVIEN.MaTV.Contains(MaTV) && pdk.DOTHIENMAU.NgayKetThuc >= DateTime.Now).ToList();
+            var phieuDangKyHienMaus = db.PHIEUDANGKYHIENMAU.Where(pdk => pdk.THANHVIEN.MaTV.Contains(MaTV) && pdk.DOTHIENMAU.NgayBatDau >= DateTime.Now).ToList();
             if (phieuDangKyHienMaus == null)
             {
                 return HttpNotFound();
@@ -37,13 +37,6 @@ namespace QUANLYHIENMAUDANANG.Controllers
         public ActionResult DeleteConfirmed(string MaDKHM)
         {
             PHIEUDANGKYHIENMAU phieuDangKyHienMau = db.PHIEUDANGKYHIENMAU.Find(MaDKHM);
-
-            var dotHienMau = db.DOTHIENMAU.Find(phieuDangKyHienMau.MaDot);
-            if (dotHienMau != null && dotHienMau.SoLuongDangKy > 0)
-            {
-                dotHienMau.SoLuongDangKy--;
-            }
-
             db.PHIEUDANGKYHIENMAU.Remove(phieuDangKyHienMau);
             db.SaveChanges();
 
